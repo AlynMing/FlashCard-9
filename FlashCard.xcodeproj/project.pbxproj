@@ -15,6 +15,7 @@
 		32CA06D223F9EE1900FA6665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CA06D023F9EE1900FA6665 /* LaunchScreen.storyboard */; };
 		32CA06DD23F9EE1900FA6665 /* FlashCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CA06DC23F9EE1900FA6665 /* FlashCardTests.swift */; };
 		32CA06E823F9EE1900FA6665 /* FlashCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CA06E723F9EE1900FA6665 /* FlashCardUITests.swift */; };
+		32D439FA240B0D3E00C1C637 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D439F9240B0D3E00C1C637 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		32CA06E323F9EE1900FA6665 /* FlashCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CA06E723F9EE1900FA6665 /* FlashCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardUITests.swift; sourceTree = "<group>"; };
 		32CA06E923F9EE1900FA6665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32D439F9240B0D3E00C1C637 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				32CA06C523F9EE1800FA6665 /* AppDelegate.swift */,
 				32CA06C723F9EE1800FA6665 /* SceneDelegate.swift */,
 				32CA06C923F9EE1800FA6665 /* ViewController.swift */,
+				32D439F9240B0D3E00C1C637 /* CreationViewController.swift */,
 				32CA06CB23F9EE1800FA6665 /* Main.storyboard */,
 				32CA06CE23F9EE1900FA6665 /* Assets.xcassets */,
 				32CA06D023F9EE1900FA6665 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				32CA06CA23F9EE1800FA6665 /* ViewController.swift in Sources */,
 				32CA06C623F9EE1800FA6665 /* AppDelegate.swift in Sources */,
 				32CA06C823F9EE1800FA6665 /* SceneDelegate.swift in Sources */,
+				32D439FA240B0D3E00C1C637 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
