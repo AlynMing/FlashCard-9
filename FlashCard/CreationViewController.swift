@@ -36,7 +36,7 @@ class CreationViewController: UIViewController {
         
         flashCardsController.updateFlashCard(question: questionText!, answer: answerText!)
         
-        dismiss(animated: true)
+        dismiss(animated: true) 
     }
     
     
