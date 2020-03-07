@@ -70,6 +70,26 @@
                                     <segue destination="6f0-Cd-kcw" kind="presentation" id="HMd-MO-6hY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rY3-TX-Qex">
+                                <rect key="frame" x="318" y="820" width="51" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TjJ-ZQ-qPy" appends="YES" id="RGU-6b-IGF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAw-Wa-UOG">
+                                <rect key="frame" x="45" y="820" width="48" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5BQ-Rd-369" appends="YES" id="rlY-xW-AYL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -85,6 +105,8 @@
                         <outlet property="btnOptionTwo" destination="SoX-eg-iGY" id="Ldw-p8-bww"/>
                         <outlet property="card" destination="WxM-om-4N8" id="erO-Vy-Ayz"/>
                         <outlet property="frontLabel" destination="WxM-om-4N8" id="srF-2c-Wss"/>
+                        <outlet property="nextButton" destination="rY3-TX-Qex" id="FMl-xH-y6Q"/>
+                        <outlet property="prevButton" destination="HAw-Wa-UOG" id="19M-ac-bIL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -106,6 +128,16 @@
                 <tapGestureRecognizer id="ZLd-gd-s62">
                     <connections>
                         <action selector="didTapCorrectOption:" destination="BYZ-38-t0r" id="adb-0e-y6t"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5BQ-Rd-369">
+                    <connections>
+                        <action selector="didTapOnPrev:" destination="BYZ-38-t0r" id="yxH-D2-lmj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="TjJ-ZQ-qPy">
+                    <connections>
+                        <action selector="didTapOnNext:" destination="BYZ-38-t0r" id="5ff-NW-IV8"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

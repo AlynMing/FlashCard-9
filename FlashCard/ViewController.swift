@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct Flashcard{
+    var question: String
+    var answer: String
+    
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var backLabel: UILabel!
@@ -24,8 +30,29 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var btnOptionThree: UIButton!
     
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
+    
+    @IBOutlet weak var prevButton: UIButton!
+    
+    var flashcards = [Flashcard]()
+    
+    var currentIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Read saved flashcards
+        readSavedFlashcards()
+        
+        if flashcards.count == 0{
+        updateFlashCard(question: "Whats the capital of New York?", answer: "Albany,NY")
+        } else {
+            updateLabels()
+            updateNextPrevButtons()
+        }
+        
         frontLabel.isHidden = false
         backLabel.isHidden = true
         
@@ -84,8 +111,42 @@ class ViewController: UIViewController {
     }
     
     func updateFlashCard(question: String, answer: String){
-        frontLabel.text = question
-        backLabel.text = answer
+        let flashcard = Flashcard(question: question, answer: answer)
+        frontLabel.text = flashcard.question
+        backLabel.text = flashcard.answer
+        
+        // Logging to the console
+        flashcards.append(flashcard)
+        
+        // Logging to the console
+        print("Added a new flashcard")
+        print("We now have \(flashcards.count) flashcards")
+        
+        //Update the curent index
+        currentIndex = flashcards.count - 1
+        print("Our current index is \(currentIndex)")
+        
+        updateNextPrevButtons() //Used to update the buttons
+        
+        //Update the labels as well
+        updateLabels()
+    }
+    
+    func updateNextPrevButtons() {
+        
+        //Disables next button if at the end
+        if (currentIndex == flashcards.count - 1){
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+        
+        //Disables prev button if at the beginning
+        if (currentIndex == 0){
+            prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
+        }
     }
     
     @IBAction func didTapFirstOption(_ sender: Any) {
@@ -102,6 +163,43 @@ class ViewController: UIViewController {
         backLabel.isHidden = false
     }
     
+    
+    @IBAction func didTapOnPrev(_ sender: Any) {
+        //Increase current Index
+        currentIndex -= 1 // or currentIndex = currentIndex + 1(same thing)
+        
+        //Update Labels
+        updateLabels()
+        
+        //Update buttons
+        updateNextPrevButtons()
+        
+    }
+    
+    
+    @IBAction func didTapOnNext(_ sender: Any) {
+        //Increase current Index
+        currentIndex += 1 // or currentIndex = currentIndex + 1(same thing)
+        
+        //Update Labels
+        updateLabels()
+        
+        //Update buttons
+        updateNextPrevButtons()
+        
+    }
+    
+    func updateLabels() {
+        
+        //Get current flashcard
+        let currentFlashcard = flashcards[currentIndex]
+        
+        //Update labels
+        frontLabel.text = currentFlashcard.question
+        backLabel.text = currentFlashcard.answer
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
         let navigationController = segue.destination as! UINavigationController
@@ -109,6 +207,32 @@ class ViewController: UIViewController {
         let creationController = navigationController.topViewController as! CreationViewController
         
         creationController.flashCardsController = self
+    }
+    
+   
+    func saveAllFlashcardsToDisk(){
+        
+        //From flashcard array to dictionary array
+           let dictionaryArray = flashcards.map { (card) -> [String: String] in return ["question": card.question, "answer": card.answer]
+           }
+        
+        //save array on the disk using userDefaults
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
+        
+        //Log it in console
+        print("Flashcards has been saved to UserDefaults")
+    }
+    
+    func readSavedFlashcards(){
+        
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]]{
+            //Once in here we are sure there is a dictionary array
+            let savedCards = dictionaryArray.map { dictionary -> Flashcard in
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)
+            }
+            //Puts all these cards in the flashcards array
+            flashcards.append(contentsOf: savedCards)
+        }
     }
     
 }
