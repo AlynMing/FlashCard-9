@@ -4,9 +4,8 @@
 `TODO://` This is a flashcards app that allows the user to enter in however many question and answers the user wants to be quizzed on. 
 
 ### App Walk-though
-<img src="Yhttp://g.recordit.co/S2KuAuEhRR.gif" width=200><br>
 
-`TODO://` In the User stories section below, add an `x` between the `-[ ]` like this `- [x]` for any user story you complete. (☝️ Remove this paragraph after after checking off user stories)
+<img src="http://g.recordit.co/S2KuAuEhRR.gif" width=200><br>
 
 ## Required
 - [X] User can browse through multiple flashcards
