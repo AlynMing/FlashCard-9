@@ -1,17 +1,19 @@
-## Lab 3
+## Lab 4
 
 ### App Description
-`TODO://` This is a flashcards app that allows the user to enter in however many question and answers the user wants to be quizzed on. 
+This is a Flashcard application. With the recent changes, the app has better animations and styling to make it more appealing to the user.
 
 ### App Walk-though
-
-<img src="http://g.recordit.co/S2KuAuEhRR.gif" width=200><br>
+<img src="http://g.recordit.co/3RQREilBIl.gif" width=200><br>
 
 ## Required
-- [X] User can browse through multiple flashcards
-- [X] User can re-open the app and see previously created flashcards
+- [X] User should see the app icon 
+- [X] User should see a splash screen
+- [X] User should see an flip animation when revealing the answer
+- [X] User should see a slide animation when going to the next flashcard
+- [X] User should see a slide animation when going to the previous flashcard
 - [X] Push code to GitHub
 ## Optional
-- [ ] User can delete a flashcard
-- [ ] User can edit existing flashcard
-- [ ] User can store multiple choice questions
+- [ ] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [ ] User should see all views properly layout when using the app on a phone of different sizes
+- [ ] Correct answer in multiple choice should be random
