@@ -100,13 +100,41 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnCard(_ sender: Any) {
-        frontLabel.isHidden = true
+        flipFlashcard()
+    }
+    
+    func flipFlashcard(){
+        
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {self.frontLabel.isHidden = true})
+        
+        
         if(backLabel.isHidden){
             frontLabel.isHidden = true
             backLabel.isHidden = false
         } else if (frontLabel.isHidden){
             frontLabel.isHidden = false
             backLabel.isHidden = true
+        }
+    }
+    
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        } , completion: { finished in
+            
+            self.updateLabels()
+            
+            self.animateCardIn()
+            
+        })
+    }
+    
+    func animateCardIn(){
+        
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.card.transform = CGAffineTransform.identity
         }
     }
     
@@ -165,6 +193,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func didTapOnPrev(_ sender: Any) {
+        
+        //calls animateCardIn function
+        animateCardIn()
+        
         //Increase current Index
         currentIndex -= 1 // or currentIndex = currentIndex + 1(same thing)
         
@@ -178,6 +210,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func didTapOnNext(_ sender: Any) {
+        
+        // calls animateCardOut function
+        animateCardOut()
+        
         //Increase current Index
         currentIndex += 1 // or currentIndex = currentIndex + 1(same thing)
         
@@ -190,6 +226,8 @@ class ViewController: UIViewController {
     }
     
     func updateLabels() {
+        
+        
         
         //Get current flashcard
         let currentFlashcard = flashcards[currentIndex]
